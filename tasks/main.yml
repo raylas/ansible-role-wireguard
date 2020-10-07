@@ -1,0 +1,17 @@
+---
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include_tasks: setup-Ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+
+- name: copy WireGuard configuration to host
+  template:
+    src: '{{ wg_conf_template }}'
+    dest: '{{ wg_conf_file_path }}'
+    owner: root
+    group: root
+    mode: 0600
+
+- name: enable and start WireGuard tunnel(s)
+  service: name=wg-quick@wg0.service enabled=yes state=started

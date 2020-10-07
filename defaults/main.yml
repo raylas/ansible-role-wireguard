@@ -1,0 +1,4 @@
+---
+wg_conf_template: 'wg0.conf.j2'
+wg_conf_file_path: '/etc/wireguard/wg0.conf'
+wg_listen_port: 51820
