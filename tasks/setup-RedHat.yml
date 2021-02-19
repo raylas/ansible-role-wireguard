@@ -7,13 +7,13 @@
     name: '{{ item }}'
     state: present
   with_items:
-    - 'elrepo-release'
-    - 'epel-release'
+  - 'elrepo-release'
+  - 'epel-release'
 
 - name: install WireGuard packages
   yum:
     name: '{{ item }}'
     state: present
   with_items:
-    - 'kmod-wireguard'
-    - 'wireguard-tools'
+  - 'kmod-wireguard'
+  - 'wireguard-tools'
