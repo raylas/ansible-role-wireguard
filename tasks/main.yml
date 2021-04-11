@@ -13,6 +13,7 @@
     group: root
     mode: 0600
 
-- name: enable and start WireGuard tunnel(s)
-  service: name=wg-quick@wg0.service enabled=yes state=started
-  # failed_when: false
+- name: enable WireGuard tunnel(s) - requires manual start
+  service: 
+    name: wg-quick@wg0.service
+    enabled: yes

@@ -1,11 +1,9 @@
 ---
-- name: update yum cache
-  yum: update_cache=yes 
-
 - name: install ELRepo and EPEL repositories
   yum:
     name: '{{ item }}'
     state: present
+    update_cache: yes
   with_items:
   - 'elrepo-release'
   - 'epel-release'

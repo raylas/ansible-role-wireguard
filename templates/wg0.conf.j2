@@ -1,5 +1,11 @@
 [Interface]
 Address = {{ wg_local_address }}
+{% if wg_post_up is defined %}
+PostUp = {{ wg_post_up }}
+{% endif %}
+{% if wg_post_down is defined %}
+PostDown = {{ wg_post_down }}
+{% endif %}
 PrivateKey = {{ wg_private_key }}
 ListenPort = {{ wg_listen_port }}
 
@@ -7,7 +13,11 @@ ListenPort = {{ wg_listen_port }}
 [Peer]
 # {{ peer.name }}
 PublicKey = {{ peer.public_key }}
+{% if peer.endpoint is defined %}
 Endpoint = {{ peer.endpoint }}
+{% endif %}
+{% if peer.keep_alive is defined %}
 PersistentKeepalive = {{ peer.keep_alive }}
+{% endif %}
 AllowedIPs = {{ peer.allowed_ips }}
 {% endfor %}

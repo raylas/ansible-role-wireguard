@@ -1,13 +1,8 @@
 ---
-- name: update apt cache
-  apt: update_cache=yes cache_valid_time=86400
-
-- name: update all installed packages
-  apt: only_upgrade=yes
-
 - name: install WireGuard packages
-  yum:
+  apt:
     name: '{{ item }}'
     state: present
+    update_cache: yes
   with_items:
     - 'wireguard'
