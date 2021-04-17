@@ -25,11 +25,11 @@ wg_local_address: '10.0.1.5/32'
 wg_private_key: '43kfsmvir...'
 
 wg_peers:
-  - name: 'host1'
-    public_key: 'h+xMzv8ry7XO...'
-    endpoint: '10.0.2.5:12800'
-    keep_alive: 25
-    allowed_ips: '10.0.2.0/24'
+- name: 'host1'
+  public_key: 'h+xMzv8ry7XO...'
+  endpoint: '10.0.2.5:12800'
+  keep_alive: 25
+  allowed_ips: '10.0.2.0/24'
 ```
 **Required**: At minimum, define these variables per-host in your inventory that utilized the WireGuard role.
 
@@ -48,7 +48,9 @@ Example Playbook
   become: yes
 
   roles:
-    - wireguard
+  - role: wireguard
+    tags:
+    - conf
 ```
 
 License

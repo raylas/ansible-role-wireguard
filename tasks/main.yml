@@ -12,6 +12,8 @@
     owner: root
     group: root
     mode: 0600
+  tags:
+  - conf
 
 - name: enable WireGuard tunnel(s) - requires manual start
   service: 
